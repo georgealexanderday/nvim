@@ -1,38 +1,63 @@
--- Mapping Function
-local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 -- Leader
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', 
+  {noremap = true, silent = true}
+)
 vim.g.mapleader = ' '
 
--- Disable kommentary defaults
-vim.g.kommentary_create_default_mappings = false
-vim.api.nvim_set_keymap("n", "<leader>cc", "<Plug>kommentary_line_default", {})
-vim.api.nvim_set_keymap("n", "<leader>c", "<Plug>kommentary_motion_default", {})
-vim.api.nvim_set_keymap("v", "<leader>c", "<Plug>kommentary_visual_default", {})
-
 -- Bufferline
-map('n', '<TAB>', ':BufferLineCycleNext<CR>')
-map('n', '<S-TAB>', ':BufferLineCyclePrev<CR>')
+vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLineCycleNext<CR>',
+  {noremap = true}
+)
+vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>',
+  {noremap = true}
+)
 
 -- Completion
 -- map('i', '<C-Space>', 'compe#complete()', {expr = true, silent = true})
-map('i', '<Space>', 'compe#confirm("<Space>")', {expr = true, silent = true})
-map('i', '<C-Space>', 'compe#close("<C-Space>")', {expr = true, silent = true})
-map('n', '<C-Space>', '')
-map('i', '<C-f>', "compe#scroll({ 'delta': +4 })", {expr = true, silent = true})
-map('i', '<C-d>', 'compe#scroll({ "delta": -4 })', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<Space>', 'compe#confirm("<Space>")', 
+  {expr = true, silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#close("<C-Space>")',
+  {expr = true, silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap('n', '<C-Space>', '',
+  {silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap('i', '<C-f>', "compe#scroll({ 'delta': +4 })",
+  {expr = true, silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })',
+  {expr = true, silent = true, noremap = true}
+)
+
+-- Trouble Diagnostics
+-- Lua
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
+  {silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
+  {silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
+  {silent = true, noremap = true}
+)
+vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
+  {silent = true, noremap = true}
+)
 
 -- Which Key
 local wk = require("which-key")
 vim.o.timeoutlen = 250 
 wk.register({
+  p = { "<cmd>Telescope find_files<cr>", "Find File" },
   f = {
-    name = "file",
-    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    name = "Telescope",
     r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep" },
@@ -42,17 +67,18 @@ wk.register({
   },
 
   b = {
-    name = "buffer",
+    name = "Buffers",
     n = { "<cmd>BufferLineCycleNext<cr>", "Next Buffer"},
     p = { "<cmd>BufferLineCyclePrev<cr>", "Previous Buffer"},
     s = { "<cmd>BufferLinePick<cr>", "Select Buffer"},
   },
-  
-  c = {
-    name = "comment", 
-    c = {"Comment Line"}
+
+  x = {
+    name = "Trouble",
   },
 
-  w = {"<cmd>w<cr>", "Write"},
-  q = {"<cmd>bd<cr>", "Close"},
+  c = {
+    name = "Comment",
+    c = { "Comment Line" }
+  }
 }, { prefix = "<leader>" })

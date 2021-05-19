@@ -33,9 +33,18 @@ return require('packer').startup(function()
   use {
     'folke/which-key.nvim',
     config = function()
-      require('which-key').setup{}
+      require("which-key").setup{}
     end
   }
+
+  -- Trouble Diagnostics
+  use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require("trouble").setup{}
+  end
+}
 
   -- BufferLine
   use {
@@ -121,4 +130,3 @@ return require('packer').startup(function()
   -- Minimap
   use 'wfxr/minimap.vim'
 end)
-

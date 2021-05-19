@@ -30,9 +30,9 @@ opt('w', 'relativenumber', true)                      -- Relative line numbers
 opt('w', 'wrap', false)                               -- Disable line wrap
 opt('o', 'mouse', 'a')                                -- Mouse
 opt('o', 'completeopt', 'menuone,noselect')           -- Compe
+opt('o', 'spelllang', 'en')                           -- Spell check
 
 -- Plugin Setup
 -- Minimap
 g['minimap_auto_start'] = 1
 g['minimap_auto_start_win_enter'] = 1
-
