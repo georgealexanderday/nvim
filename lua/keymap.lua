@@ -1,40 +1,52 @@
+---@diagnostic disable: undefined-global
 -- Leader
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>',
   {noremap = true, silent = true}
 )
 vim.g.mapleader = ' '
 
+
 -- Sensible Window Commands
 -- better window movement
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h',
+  {silent = true}
+)
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j',
+  {silent = true}
+)
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k',
+  {silent = true}
+)
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l',
+  {silent = true}
+)
 
 -- TODO fix this
--- Terminal window navigation
-vim.cmd([[
-  tnoremap <C-h> <C-\><C-N><C-w>h
-  tnoremap <C-j> <C-\><C-N><C-w>j
-  tnoremap <C-k> <C-\><C-N><C-w>k
-  tnoremap <C-l> <C-\><C-N><C-w>l
-  inoremap <C-h> <C-\><C-N><C-w>h
-  inoremap <C-j> <C-\><C-N><C-w>j
-  inoremap <C-k> <C-\><C-N><C-w>k
-  inoremap <C-l> <C-\><C-N><C-w>l
-  tnoremap <Esc> <C-\><C-n>
-]])
-
--- TODO fix this
+-- Terminal
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-Bslash><C-n>',
+  {silent = true, noremap = true}
+)
 -- resize with arrows
-vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +2<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>',
+  {silent = true}
+)
+vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +2<CR>',
+  {silent = true}
+)
+vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>',
+  {silent = true}
+)
+vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>',
+  {silent = true}
+)
 
 -- better indenting
-vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<', '<gv',
+  {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap('v', '>', '>gv',
+  {noremap = true, silent = true}
+)
 
 -- Bufferline
 vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLineCycleNext<CR>',
@@ -54,6 +66,7 @@ vim.api.nvim_set_keymap('i', '<Space>', 'compe#confirm("<Space>")',
 vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#close("<C-Space>")',
   {expr = true, silent = true, noremap = true}
 )
+
 vim.api.nvim_set_keymap('n', '<C-Space>', '',
   {silent = true, noremap = true}
 )
@@ -86,18 +99,28 @@ vim.api.nvim_set_keymap("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>",
 )
 
 -- LSP
-vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
+vim.api.nvim_set_keymap("i", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
   {silent = true, noremap = true}
 )
 
-vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+vim.api.nvim_set_keymap("i", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
   {silent = true, noremap = true}
 )
+
+-- Comments
+vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>",
+  {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>",
+  {noremap = true, silent = true}
+)
+
 
 -- Which Key
 local wk = require("which-key")
 vim.o.timeoutlen = 250
 wk.register({
+  [';'] = {"<cmd>Dashboard<cr>", "Dashboard"},
   p = { "<cmd>Telescope find_files<cr>", "Find File" },
   f = {
     name = "Telescope",
@@ -108,7 +131,6 @@ wk.register({
     c = { "<cmd>Telescope command_history<cr>", "Help" },
     n = { "<cmd>enew<cr>", "New File" }
   },
-
   b = {
     name = "Buffers",
     n = { "<cmd>BufferLineCycleNext<cr>", "Next Buffer"},
@@ -124,13 +146,29 @@ wk.register({
     r = {"<cmd>Lspsaga rename<cr>", "Rename"},
     p = {"<cmd>Lspsaga preview_definition<cr>", "Preview Definition"},
     j = {"<cmd>Lspsaga show_line_diagnostics<cr>", "Show Line Diagnostics"},
-
   },
-
+  g = {
+    name = "Git",
+    o = {"<cmd>Telescope git_status<cr>", "Open changed file"},
+    b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
+    c = {"<cmd>Telescope git_commits<cr>", "Checkout commit"},
+    C = {"<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)"},
+  },
+  t = {
+    name = "Terminal",
+    s = {"<cmd>FloatermToggle!<cr>", "Show"},
+    n = {"<cmd>FloatermNext<cr>", "Next"},
+    t = {"<cmd>FloatermNew<cr>", "New"},
+    e = {"<cmd>FloatermKill!<cr>", "End/Kill"},
+  },
+  e = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
   x = {
     name = "Trouble",
   },
-  w = {"<cmd>:w<cr>", "Save"},
-  q = {"<cmd>:bd<cr>", "Close"}
+  S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
+  m = {"<cmd>MinimapToggle<cr>", "Minimap"},
+  w = {"<cmd>w<cr>", "Save"},
+  q = {"<cmd>bd<cr>", "Close"},
+  ["/"] = "Comment"
 
 }, { prefix = "<leader>" })

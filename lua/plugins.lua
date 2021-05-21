@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -10,18 +10,11 @@ return require('packer').startup(function()
     end
   }
 
-  --[[ use {
-    'folke/tokyonight.nvim',
-    config = function()
-      vim.cmd('colorscheme tokyonight')
-    end
-  } ]]
-
 
   -- Status Line
   use {
     'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    requires = {'kyazdani42/nvim-web-devicons'},
     config = function()
       require('lualine').setup {
       options = {
@@ -30,10 +23,17 @@ return require('packer').startup(function()
       }
     end
   }
+
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
+
+  -- TREE
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons'}
   }
 
   -- Which Key
@@ -42,6 +42,19 @@ return require('packer').startup(function()
     config = function()
       require("which-key").setup{}
     end
+  }
+
+  -- Comments
+  use {
+    'terrortylor/nvim-comment',
+    config = function()
+      require('nvim_comment').setup()
+    end
+  }
+
+  -- Dashboard
+  use {
+    'glepnir/dashboard-nvim'
   }
 
   -- Trouble Diagnostics
@@ -53,6 +66,7 @@ return require('packer').startup(function()
     end
   }
 
+
   -- LSP SAGA
   use {
     'glepnir/lspsaga.nvim',
@@ -61,9 +75,16 @@ return require('packer').startup(function()
     end
   }
 
+  use {
+    "steelsojka/pears.nvim",
+    config = function()
+      require('pears').setup()
+    end
+  }
+
   -- BufferLine
   use {
-    'akinsho/nvim-bufferline.lua', 
+    'akinsho/nvim-bufferline.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
       require('bufferline').setup{}
@@ -87,7 +108,7 @@ return require('packer').startup(function()
   use {
     'neovim/nvim-lspconfig'
   }
- 
+
   -- LSP Installer
   use {
     'kabouzeid/nvim-lspinstall'
@@ -140,19 +161,16 @@ return require('packer').startup(function()
   }
 
   -- Indent Blankline
-  use {
-    'lukas-reineke/indent-blankline.nvim'
-  }
-
-  -- Commenting
-  use {
-    'b3nj5m1n/kommentary'
-  }
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- Minimap
   use 'wfxr/minimap.vim'
 
+  -- Floating terminal
   use 'voldikss/vim-floaterm'
 
+
+  -- LSP Rooter
+  use 'ahmedkhalf/lsp-rooter.nvim'
 
 end)
