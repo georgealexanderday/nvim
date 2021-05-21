@@ -1,7 +1,7 @@
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  
+
   -- Colourscheme
   use {
     'shaunsingh/nord.nvim',
@@ -9,6 +9,14 @@ return require('packer').startup(function()
       require('nord').set()
     end
   }
+
+  --[[ use {
+    'folke/tokyonight.nvim',
+    config = function()
+      vim.cmd('colorscheme tokyonight')
+    end
+  } ]]
+
 
   -- Status Line
   use {
@@ -22,7 +30,6 @@ return require('packer').startup(function()
       }
     end
   }
-
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
@@ -39,12 +46,20 @@ return require('packer').startup(function()
 
   -- Trouble Diagnostics
   use {
-  "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons",
-  config = function()
-    require("trouble").setup{}
-  end
-}
+    'folke/trouble.nvim',
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup{}
+    end
+  }
+
+  -- LSP SAGA
+  use {
+    'glepnir/lspsaga.nvim',
+    config = function ()
+      require('lspsaga').init_lsp_saga()
+    end
+  }
 
   -- BufferLine
   use {
@@ -84,6 +99,13 @@ return require('packer').startup(function()
     config = function()
       require('zen-mode').setup{}
     end
+  }
+
+  use {
+    'hrsh7th/vim-vsnip'
+  }
+  use {
+    'hrsh7th/vim-vsnip-integ'
   }
 
   -- Auto Completion
@@ -129,4 +151,8 @@ return require('packer').startup(function()
 
   -- Minimap
   use 'wfxr/minimap.vim'
+
+  use 'voldikss/vim-floaterm'
+
+
 end)
