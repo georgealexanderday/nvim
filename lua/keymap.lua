@@ -3,7 +3,6 @@
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>',
   {noremap = true, silent = true}
 )
-vim.g.mapleader = ' '
 
 
 -- Sensible Window Commands
@@ -20,8 +19,6 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k',
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l',
   {silent = true}
 )
-
--- TODO fix this
 -- Terminal
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-Bslash><C-n>',
   {silent = true, noremap = true}
@@ -50,10 +47,10 @@ vim.api.nvim_set_keymap('v', '>', '>gv',
 
 -- Bufferline
 vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLineCycleNext<CR>',
-  {noremap = true}
+  {noremap = true, silent = true}
 )
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>',
-  {noremap = true}
+  {noremap = true, silent = true}
 )
 
 -- Completion
@@ -128,7 +125,7 @@ wk.register({
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep" },
     h = { "<cmd>Telescope help_tags<cr>", "Help" },
-    c = { "<cmd>Telescope command_history<cr>", "Help" },
+    c = { "<cmd>Telescope command_history<cr>", "Command History" },
     n = { "<cmd>enew<cr>", "New File" }
   },
   b = {
@@ -164,6 +161,13 @@ wk.register({
   e = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
   x = {
     name = "Trouble",
+  },
+  d = {
+    name = "Todo",
+    f = {"<cmd>TodoTelescope<cr>", "Telescope Todo"},
+    x = {"<cmd>TodoTrouble<cr>", "Trouble Todo"},
+    q = {"<cmd>TodoQuickFix<cr>", "Quickfix Todo"},
+
   },
   S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
   m = {"<cmd>MinimapToggle<cr>", "Minimap"},

@@ -88,11 +88,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/g/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
-  ["lualine.nvim"] = {
-    config = { "\27LJ\2\2Z\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\tnord\nsetup\flualine\frequire\0" },
-    loaded = true,
-    path = "/home/g/.local/share/nvim/site/pack/packer/start/lualine.nvim"
-  },
   ["minimap.vim"] = {
     loaded = true,
     path = "/home/g/.local/share/nvim/site/pack/packer/start/minimap.vim"
@@ -159,6 +154,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/g/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["todo-comments.nvim"] = {
+    config = { "\27LJ\2\2?\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
+    loaded = true,
+    path = "/home/g/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
+  },
   ["trouble.nvim"] = {
     config = { "\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
     loaded = true,
@@ -205,18 +205,6 @@ time("Config for nord.nvim", false)
 time("Config for nvim-compe", true)
 try_loadstring("\27LJ\2\2∫\2\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0005\2\4\0=\2\5\1B\0\2\1K\0\1\0\vsource\1\0\a\nvsnip\2\tcalc\2\rnvim_lua\2\vbuffer\2\14ultisnips\2\tpath\2\rnvim_lsp\2\1\0\f\19source_timeout\3»\1\14preselect\venable\fenabled\2\21incomplete_delay\3ê\3\19max_abbr_width\3d\15min_length\3\1\18documentation\2\ndebug\1\18throttle_time\3P\17autocomplete\2\19max_menu_width\3d\19max_kind_width\3d\nsetup\ncompe\frequire\0", "config", "nvim-compe")
 time("Config for nvim-compe", false)
--- Config for: which-key.nvim
-time("Config for which-key.nvim", true)
-try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time("Config for which-key.nvim", false)
--- Config for: lualine.nvim
-time("Config for lualine.nvim", true)
-try_loadstring("\27LJ\2\2Z\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\tnord\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time("Config for lualine.nvim", false)
--- Config for: nvim-bufferline.lua
-time("Config for nvim-bufferline.lua", true)
-try_loadstring("\27LJ\2\2<\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\15bufferline\frequire\0", "config", "nvim-bufferline.lua")
-time("Config for nvim-bufferline.lua", false)
 -- Config for: zen-mode.nvim
 time("Config for zen-mode.nvim", true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
@@ -225,6 +213,18 @@ time("Config for zen-mode.nvim", false)
 time("Config for nvim-comment", true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17nvim_comment\frequire\0", "config", "nvim-comment")
 time("Config for nvim-comment", false)
+-- Config for: nvim-bufferline.lua
+time("Config for nvim-bufferline.lua", true)
+try_loadstring("\27LJ\2\2<\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\15bufferline\frequire\0", "config", "nvim-bufferline.lua")
+time("Config for nvim-bufferline.lua", false)
+-- Config for: which-key.nvim
+time("Config for which-key.nvim", true)
+try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time("Config for which-key.nvim", false)
+-- Config for: todo-comments.nvim
+time("Config for todo-comments.nvim", true)
+try_loadstring("\27LJ\2\2?\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time("Config for todo-comments.nvim", false)
 -- Config for: nvim-treesitter
 time("Config for nvim-treesitter", true)
 try_loadstring("\27LJ\2\2i\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")

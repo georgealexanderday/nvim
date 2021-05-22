@@ -10,19 +10,18 @@ return require('packer').startup(function(use)
     end
   }
 
-
   -- Status Line
-  use {
-    'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'},
-    config = function()
-      require('lualine').setup {
-      options = {
-          theme = 'nord'
-        }
-      }
-    end
-  }
+--   use {
+--     'hoob3rt/lualine.nvim',
+--     requires = {'kyazdani42/nvim-web-devicons'},
+--     config = function()
+--       require('lualine').setup {
+--       options = {
+--           theme = 'nord'
+--         }
+--       }
+--     end
+--   }
 
   -- Telescope
   use {
@@ -69,6 +68,14 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+  "folke/todo-comments.nvim",
+  requires = "nvim-lua/plenary.nvim",
+  config = function()
+    require("todo-comments").setup{}
+  end
+}
+
 
   -- LSP SAGA
   use {
@@ -97,16 +104,15 @@ return require('packer').startup(function(use)
   -- TreeSitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup{
+      require('nvim-treesitter.configs').setup {
         highlight = {
-          enable = true
-        }
+          enable = true,
+        },
       }
     end
   }
-
+-- 
   -- Native LSP
   use {
     'neovim/nvim-lspconfig'

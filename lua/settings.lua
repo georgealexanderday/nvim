@@ -46,6 +46,10 @@ g.floaterm_position = 'right'
 g.floaterm_wintype = 'vsplit'
 vim.api.nvim_command('au TermOpen * setlocal nonumber norelativenumber')
 
+-- Elixir 
+vim.api.nvim_command('au BufRead,BufNewFile *.ex,*.exs set filetype=elixir')
+vim.api.nvim_command('au BufRead,BufNewFile *.eex set filetype=eelixir')
+
 -- DashBoard
 g.dashboard_default_executive = 'telescope'
 vim.g.dashboard_custom_section = {
