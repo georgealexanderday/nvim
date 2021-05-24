@@ -1,12 +1,6 @@
 ---@diagnostic disable: undefined-global
--- Leader
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>',
-  {noremap = true, silent = true}
-)
-
 
 -- Sensible Window Commands
--- better window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h',
   {silent = true}
 )
@@ -19,10 +13,12 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k',
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l',
   {silent = true}
 )
+
 -- Terminal
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-Bslash><C-n>',
   {silent = true, noremap = true}
 )
+
 -- resize with arrows
 vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>',
   {silent = true}
@@ -58,6 +54,7 @@ vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>',
   {noremap = true, silent = true}
 )
 
+-- TODO: Sort this mess out
 -- Completion
 vim.api.nvim_set_keymap('i', '<C-TAB>', 'compe#complete()',
   {expr = true, silent = true, noremap = true}
@@ -68,7 +65,6 @@ vim.api.nvim_set_keymap('i', '<Space>', 'compe#confirm("<Space>")',
 vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#close("<C-Space>")',
   {expr = true, silent = true, noremap = true}
 )
-
 vim.api.nvim_set_keymap('n', '<C-Space>', '',
   {silent = true, noremap = true}
 )
@@ -80,7 +76,7 @@ vim.api.nvim_set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })',
 )
 
 -- Trouble Diagnostics
--- TODO convert this to whichkey
+-- TODO: convert this to whichkey
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
   {silent = true, noremap = true}
 )
@@ -101,6 +97,7 @@ vim.api.nvim_set_keymap("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>",
 )
 
 -- LSP
+-- FIX: this doesnt work
 vim.api.nvim_set_keymap("i", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
   {silent = true, noremap = true}
 )
