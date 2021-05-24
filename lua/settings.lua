@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local, undefined-global
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
@@ -32,6 +33,6 @@ opt('o', 'completeopt', 'menuone,noselect')           -- Compe
 opt('o', 'spelllang', 'en')                           -- Spell check
 opt('o', 'pumheight', 8)                              -- Pop up menu height
 
--- Elixir 
+-- Elixir
 vim.api.nvim_command('au BufRead,BufNewFile *.ex,*.exs set filetype=elixir')
 vim.api.nvim_command('au BufRead,BufNewFile *.eex set filetype=eelixir')

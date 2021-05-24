@@ -45,6 +45,11 @@ vim.api.nvim_set_keymap('v', '>', '>gv',
   {noremap = true, silent = true}
 )
 
+-- better undo
+vim.api.nvim_set_keymap('n', 'U', '<C-r>',
+  {noremap = true, silent = true}
+)
+
 -- Bufferline
 vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLineCycleNext<CR>',
   {noremap = true, silent = true}

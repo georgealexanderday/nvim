@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -206,7 +207,7 @@ return require('packer').startup(function(use)
   -- Minimap
   use {
     'wfxr/minimap.vim',
-    config = function() 
+    config = function()
       vim.g.minimap_auto_start = 0
       vim.g.minimap_auto_start_win_enter = 0
     end

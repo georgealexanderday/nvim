@@ -89,6 +89,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/g/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
+  ["lualine.nvim"] = {
+    config = { "\27LJ\2\2`\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\15tokyonight\nsetup\flualine\frequire\0" },
+    loaded = true,
+    path = "/home/g/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
   ["minimap.vim"] = {
     config = { "\27LJ\2\2a\0\0\2\0\4\0\t6\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0K\0\1\0!minimap_auto_start_win_enter\23minimap_auto_start\6g\bvim\0" },
     loaded = true,
@@ -133,11 +138,6 @@ _G.packer_plugins = {
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/g/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  },
-  ["pears.nvim"] = {
-    config = { "\27LJ\2\0023\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\npears\frequire\0" },
-    loaded = true,
-    path = "/home/g/.local/share/nvim/site/pack/packer/start/pears.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -200,10 +200,6 @@ time("Defining packer_plugins", false)
 time("Config for lspsaga.nvim", true)
 try_loadstring("\27LJ\2\2=\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\18init_lsp_saga\flspsaga\frequire\0", "config", "lspsaga.nvim")
 time("Config for lspsaga.nvim", false)
--- Config for: pears.nvim
-time("Config for pears.nvim", true)
-try_loadstring("\27LJ\2\0023\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\npears\frequire\0", "config", "pears.nvim")
-time("Config for pears.nvim", false)
 -- Config for: nvim-comment
 time("Config for nvim-comment", true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17nvim_comment\frequire\0", "config", "nvim-comment")
@@ -216,14 +212,18 @@ time("Config for nvim-compe", false)
 time("Config for zen-mode.nvim", true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
 time("Config for zen-mode.nvim", false)
--- Config for: minimap.vim
-time("Config for minimap.vim", true)
-try_loadstring("\27LJ\2\2a\0\0\2\0\4\0\t6\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0K\0\1\0!minimap_auto_start_win_enter\23minimap_auto_start\6g\bvim\0", "config", "minimap.vim")
-time("Config for minimap.vim", false)
 -- Config for: which-key.nvim
 time("Config for which-key.nvim", true)
 try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time("Config for which-key.nvim", false)
+-- Config for: minimap.vim
+time("Config for minimap.vim", true)
+try_loadstring("\27LJ\2\2a\0\0\2\0\4\0\t6\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0K\0\1\0!minimap_auto_start_win_enter\23minimap_auto_start\6g\bvim\0", "config", "minimap.vim")
+time("Config for minimap.vim", false)
+-- Config for: lualine.nvim
+time("Config for lualine.nvim", true)
+try_loadstring("\27LJ\2\2`\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\15tokyonight\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time("Config for lualine.nvim", false)
 -- Config for: dashboard-nvim
 time("Config for dashboard-nvim", true)
 try_loadstring("\27LJ\2\2�\18\0\0\4\0\25\0%6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0005\1\b\0005\2\6\0005\3\5\0=\3\a\2=\2\t\0015\2\v\0005\3\n\0=\3\a\2=\2\f\0015\2\14\0005\3\r\0=\3\a\2=\2\15\0015\2\17\0005\3\16\0=\3\a\2=\2\18\0015\2\20\0005\3\19\0=\3\a\2=\2\21\1=\1\4\0006\0\0\0009\0\1\0004\1\0\0=\1\22\0006\0\0\0009\0\1\0005\1\24\0=\1\23\0K\0\1\0\1\20\0\0\5\5\5�\1   ███▄    █  ██▓  ▄████  ██░ ██ ▄▄▄█████▓  █████▒ █    ██  ██▀███  ▓██   ██▓  ▄████ �\1   ██ ▀█   █ ▓██▒ ██▒ ▀█▒▓██░ ██▒▓  ██▒ ▓▒▓██   ▒  ██  ▓██▒▓██ ▒ ██▒ ▒██  ██▒ ██▒ ▀█▒�\1  ▓██  ▀█ ██▒▒██▒▒██░▄▄▄░▒██▀▀██░▒ ▓██░ ▒░▒████ ░ ▓██  ▒██░▓██ ░▄█ ▒  ▒██ ██░▒██░▄▄▄░�\1  ▓██▒  ▐▌██▒░██░░▓█  ██▓░▓█ ░██ ░ ▓██▓ ░ ░▓█▒  ░ ▓▓█  ░██░▒██▀▀█▄    ░ ▐██▓░░▓█  ██▓�\1  ▒██░   ▓██░░██░░▒▓███▀▒░▓█▒░██▓  ▒██▒ ░ ░▒█░    ▒▒█████▓ ░██▓ ▒██▒  ░ ██▒▓░░▒▓███▀▒�\1  ░ ▒░   ▒ ▒ ░▓   ░▒   ▒  ▒ ░░▒░▒  ▒ ░░    ▒ ░    ░▒▓▒ ▒ ▒ ░ ▒▓ ░▒▓░   ██▒▒▒  ░▒   ▒ �\1  ░ ░░   ░ ▒░ ▒ ░  ░   ░  ▒ ░▒░ ░    ░     ░      ░░▒░ ░ ░   ░▒ ░ ▒░ ▓██ ░▒░   ░   ░ �\1     ░   ░ ░  ▒ ░░ ░   ░  ░  ░░ ░  ░       ░ ░     ░░░ ░ ░   ░░   ░  ▒ ▒ ░░  ░ ░   ░ p           ░  ░        ░  ░  ░  ░                    ░        ░      ░ ░           ░ ^                                                                     ░ ░             \5\5Z                                       N V I M                                       \5\5\5\28dashboard_custom_header\28dashboard_custom_footer\6e\1\0\1\fcommand&:e ~/.config/nvim/lua/plugins.lua\1\2\0\0\29  Settings           \6d\1\0\1\fcommand\24Telescope live_grep\1\2\0\0\29  Find Word          \6c\1\0\1\fcommand\16SessionLoad\1\2\0\0\29  Load Last Session  \6b\1\0\1\fcommand\23Telescope oldfiles\1\2\0\0\29  Recently Used Files\6a\1\0\0\16description\1\0\1\fcommand\25Telescope find_files\1\2\0\0\29  Find File          \29dashboard_custom_section\14telescope dashboard_default_executive\6g\bvim\0", "config", "dashboard-nvim")

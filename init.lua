@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 vim.g.mapleader = ' '
 
 require('plugins')
