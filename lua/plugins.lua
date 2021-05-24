@@ -4,24 +4,26 @@ return require('packer').startup(function(use)
 
   -- Colourscheme
   use {
-    'shaunsingh/nord.nvim',
+    'folke/tokyonight.nvim',
     config = function()
-      require('nord').set()
+      vim.g.tokyonight_style = "storm"
+      vim.g.tokyonight_italic_functions = true
+      vim.cmd('colorscheme tokyonight')
     end
   }
 
   -- Status Line
---   use {
---     'hoob3rt/lualine.nvim',
---     requires = {'kyazdani42/nvim-web-devicons'},
---     config = function()
---       require('lualine').setup {
---       options = {
---           theme = 'nord'
---         }
---       }
---     end
---   }
+  use {
+    'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = function()
+      require('lualine').setup {
+      options = {
+          theme = 'tokyonight'
+        }
+      }
+    end
+  }
 
   -- Telescope
   use {
@@ -56,7 +58,36 @@ return require('packer').startup(function(use)
 
   -- Dashboard
   use {
-    'glepnir/dashboard-nvim'
+    'glepnir/dashboard-nvim',
+    config = function()
+      vim.g.dashboard_default_executive = 'telescope'
+      vim.g.dashboard_custom_section = {
+          a = {description = {'  Find File          '}, command = 'Telescope find_files'},
+          b = {description = {'  Recently Used Files'}, command = 'Telescope oldfiles'},
+          c = {description = {'  Load Last Session  '}, command = 'SessionLoad'},
+          d = {description = {'  Find Word          '}, command = 'Telescope live_grep'},
+          e = {description = {'  Settings           '}, command = ':e ~/.config/nvim/lua/plugins.lua'},
+      }
+      vim.g.dashboard_custom_footer = {}
+      vim.g.dashboard_custom_header = {
+         '',
+         '',
+         '',
+         '',
+         '',
+         ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+         ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+         ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+         ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+         ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+         ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+         '',
+         '',
+         '',
+         '',
+         '',
+      }
+      end
   }
 
   -- Trouble Diagnostics
@@ -173,11 +204,26 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
 
   -- Minimap
-  use 'wfxr/minimap.vim'
+  use {
+    'wfxr/minimap.vim',
+    config = function() 
+      vim.g.minimap_auto_start = 0
+      vim.g.minimap_auto_start_win_enter = 0
+    end
+  }
 
   -- Floating terminal
-  use 'voldikss/vim-floaterm'
-
+  use {
+    'voldikss/vim-floaterm',
+    config = function()
+      vim.g.floaterm_autoinsert = false
+      vim.g.floaterm_height = 0.8
+      vim.g.floaterm_width = 0.3
+      vim.g.floaterm_position = 'right'
+      vim.g.floaterm_wintype = 'vsplit'
+      vim.api.nvim_command('au TermOpen * setlocal nonumber norelativenumber')
+    end
+  }
 
   -- LSP Rooter
   use 'ahmedkhalf/lsp-rooter.nvim'
