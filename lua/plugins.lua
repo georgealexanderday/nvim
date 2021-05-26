@@ -1,3 +1,13 @@
+local execute = vim.api.nvim_command
+local fn = vim.fn
+
+local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  execute 'packadd packer.nvim'
+end
+
 ---@diagnostic disable: undefined-global
 return require('packer').startup(function(use)
   -- Packer can manage itself
@@ -66,8 +76,8 @@ return require('packer').startup(function(use)
           a = {description = {'  Find File          '}, command = 'Telescope find_files'},
           b = {description = {'  Recently Used Files'}, command = 'Telescope oldfiles'},
           c = {description = {'  Load Last Session  '}, command = 'SessionLoad'},
-          d = {description = {'  Find Word          '}, command = 'Telescope live_grep'},
-          e = {description = {'  Settings           '}, command = ':e ~/.config/nvim/lua/plugins.lua'},
+          d = {description = {'  NVIM               '}, command = ':e ~/.config/nvim/lua/plugins.lua'},
+          e = {description = {'  NIX                '}, command = ':e ~/.config/nixpkgs/home.nix'},
       }
       vim.g.dashboard_custom_footer = {}
       vim.g.dashboard_custom_header = {
@@ -205,13 +215,13 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
 
   -- Minimap
-  use {
-    'wfxr/minimap.vim',
-    config = function()
-      vim.g.minimap_auto_start = 0
-      vim.g.minimap_auto_start_win_enter = 0
-    end
-  }
+  -- use {
+  --   'wfxr/minimap.vim',
+  --   config = function()
+  --     vim.g.minimap_auto_start = 0
+  --     vim.g.minimap_auto_start_win_enter = 0
+  --   end
+  -- }
 
   -- Floating terminal
   use {

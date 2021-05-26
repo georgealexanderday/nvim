@@ -172,7 +172,7 @@ wk.register({
 
   },
   S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
-  m = {"<cmd>MinimapToggle<cr>", "Minimap"},
+  -- m = {"<cmd>MinimapToggle<cr>", "Minimap"},
   w = {"<cmd>w<cr>", "Save"},
   q = {"<cmd>bd<cr>", "Close"},
   ["/"] = "Comment"
